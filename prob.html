@@ -30,7 +30,9 @@
 			<h2 id="distribuzione-binomiale-continua">Distribuzione binomiale continua</h2>
 			<p>Prendiamo in esame un esempio più complicato (ma anche più vicino alla realtà). I valori <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> sono come sempre stabiliti perchè arbitrari, ma questa volta il valore <span class="math inline">\(s\)</span> non è stabilito, ma diventa oggetto di indagine. Attraversi i dati ottenuti dai calcoli eseguiti con <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> si otterranno solo delle approssimazioni di <span class="math inline">\(s\)</span>, e non un valore preciso. Consideriamo di nuovo l’esempio della moneta: in questo caso la moneta è truccata, e la percentuale <span class="math inline">\(s\)</span> di ottenere testa è sconosciuta. Possiamo solamente ricavare la previsione a priori, e poi aggiornarla con l’aggiunta di nuovi dati.</p>
 			<p>Il primo caso è proprio quello della moneta: <span class="math inline">\(n=30\)</span> e <span class="math inline">\(k=11\)</span>. Ciò significa che ci sono 11 teste su 30. Come possiamo indovinare <span class="math inline">\(s\)</span>? Un primo approccio potrebbe essere quello di dividere le possibili probabilità in intervalli di 0.1, e vedere con la formula della distribuzione binomiale quale è più probabile.</p>
+			<figure>
 			<img src="matematica-figure0.svg" class="img-fluid" alt="">
+			</figure>
 			<br />
 
 			<p>Procedendo con questo metodo possiamo ottenere una risposta approssimativa, ovvero quella più vicina al risultato: <span class="math inline">\(0.4\)</span>. Se però si riflette sul valore del numero, possiamo anche pensare ai numeri reali più vicini, ad esempio <span class="math inline">\(0.40001\)</span> o <span class="math inline">\(0.39999\)</span>. Dunque per avere più precisione nelle nostre previsioni occorre rendere l’intervallo di ogni valore di <span class="math inline">\(s\)</span> più piccolo.  In questo caso possiamo usare un intervallo di 0.01 per garantire una maggiore precisione.</p>
@@ -41,7 +43,9 @@
 			Beta(\alpha, \beta)=\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}
 			\end{equation}\]</span></p>
 			<p>Dove <span class="math inline">\(\alpha=k\)</span>, <span class="math inline">\(\beta=n-k\)</span> e <span class="math inline">\(B(\alpha, \beta)\)</span> è una particolare funzione definita <em>Funzione Beta</em>.</p>
+			<figure>
 			<img src="matematica-figure2.svg" class="img-fluid" alt="">
+			</figure>
 			<p>Grazie a questo strumento matematico possiamo finalmente calcolare la probabilità che <span class="math inline">\(s\)</span> abbia un certo valore. Prima però è importante porsi delle domande sul valore <span class="math inline">\(s\)</span> stesso. La domanda da farsi è “può <span class="math inline">\(s\)</span> assumere un valore preciso?” o più chiaramente, “Qual è la probabilità che <span class="math inline">\(s\)</span> sia <strong>esattamente</strong> un valore <span class="math inline">\(x\)</span>?”.</p>
 			<p>Il buon senso ci dice che probabilmente non è molto alta: non può essere <strong>esattamente</strong> (ad esempio) 0.4 e non 0.399999 o 0.400001. Anche matematicamente ciò ha senso: possiamo pensare alla distribuzione beta come una distribuzione discreta</p>
 			<button type="button" onclick="window.location.href='index.html';" class="btn btn-outline-secondary">Torna indietro</button><br>
