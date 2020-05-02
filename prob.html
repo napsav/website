@@ -8,6 +8,38 @@
     		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	</head>
 	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="home">Saverio's website</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about">About</a>
+      </li>
+         
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Contenuti
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prob">Probabilità delle probabilità</a>
+          <a class="dropdown-item" href="locke-hobbes">Locke e Hobbes</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="about">About</a>
+        </div>
+      </li>
+    	</ul>
+	<span>
+	<button type="button" onclick="window.location.href='index';" class="btn btn-outline-secondary">Torna indietro</button>
+	</span>
+</div>
+</nav>
 		<br>
 		<div class="container">
 			<h1>Probabilità delle probabilità</h1>	          	
@@ -55,7 +87,7 @@
 			</div>
 			<p>Grazie a questo strumento matematico possiamo finalmente calcolare la probabilità che <span class="math inline">\(s\)</span> abbia un certo valore. Prima però è importante porsi delle domande sul valore <span class="math inline">\(s\)</span> stesso. La domanda da farsi è “può <span class="math inline">\(s\)</span> assumere un valore preciso?” o più chiaramente, “Qual è la probabilità che <span class="math inline">\(s\)</span> sia <strong>esattamente</strong> un valore <span class="math inline">\(x\)</span>?”.</p>
 			<p>Il buon senso ci dice che probabilmente non è molto alta: non può essere <strong>esattamente</strong> (ad esempio) 0.4 e non 0.399999 o 0.400001. Anche matematicamente ciò ha senso: possiamo pensare alla distribuzione beta come una distribuzione discreta</p>
-			<button type="button" onclick="window.location.href='index.html';" class="btn btn-outline-secondary">Torna indietro</button><br>
+			<button type="button" onclick="window.location.href='index';" class="btn btn-outline-secondary">Torna indietro</button><br>
 			<br>
 		</div>
 		<!-- Optional JavaScript -->
