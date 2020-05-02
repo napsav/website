@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home">Saverio's website</a>
+  <a class="navbar-brand" href="index">Saverio's website</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -48,7 +48,7 @@
 			<p>Facendo un esempio più classico, come quello della moneta, possiamo stabilire un modello probabilistico (stocastico) più facile da gestire matematicamente. Definiamo <span class="math inline">\(s\)</span> come la probabilità che lanciando una moneta esca testa. Per il momento stabiliamo che la moneta non è truccata: dunque <span class="math inline">\(s = 0.5\)</span>, ovvero c’è il 50% di probabilità che lanciando la moneta esca testa. Definiamo <span class="math inline">\(n\)</span> invece come il numero di lanci che vogliamo eseguire, ad esempio 100. Infine definiamo <span class="math inline">\(k\)</span> come il numero di teste che sono uscite in seguito alla nostra sperimentazione. Utilizzando il linguaggio di programmazione <code>Python</code> possiamo creare piccole simulazioni e scalarle facilmente a numeri più grandi.</p>
 			<p>Supponiamo adesso di voler sapere quante volte (se ripetessimo l’esperimento dei 100 lanci) <span class="math inline">\(k\)</span> equivale a 48 (nonostante il fatto che <span class="math inline">\(s\)</span> equivalga a <span class="math inline">\(0.5\)</span>, è ragionevole pensare che il risultato non sarà solamente e sempre quello di 50 teste e 50 code, conclusione tratta anche nel primo esempio). Consideriamo sempre le stesse condizioni di prima: il modello è <strong>discreto</strong> (non esite mezza testa o mezza coda, quindi <span class="math inline">\(k\)</span> non può essere decimale), e ogni lancio è <strong>indipendente l’uno dall’altro</strong>.</p>
 			<figure>
-			<img src="p05n100.png" class="img-fluid" alt=""><figcaption>Insieme campione: 100000 simulazioni</figcaption>
+			<img src="assets/p05n100.png" class="img-fluid" alt=""><figcaption>Insieme campione: 100000 simulazioni</figcaption>
 			</figure>
 			<p>Eseguita la simulazione, per calcolare la probabilità che <span class="math inline">\(k\)</span> sia 48 basta prendere la frequenza del caso in cui escono 48 teste (<span class="math inline">\(7433\)</span>) e dividerlo per il numero di simulazioni (<span class="math inline">\(100000\)</span>). La probabilità risultante sarà <span class="math inline">\(0,07433\)</span>, ovvero nel 7,4% dei casi.</p>
 			<p>Abbiamo visto quindi come questo modello segue la <strong>distribuzione binomiale</strong>, e quindi per calcolare ogni probabilità di un evento con un dati <span class="math inline">\(k\)</span>, <span class="math inline">\(n\)</span> e <span class="math inline">\(s\)</span>, basterà utilizzare la formula apposita:</p>
@@ -65,14 +65,14 @@
 			<p>Il primo caso è proprio quello della moneta: <span class="math inline">\(n=30\)</span> e <span class="math inline">\(k=11\)</span>. Ciò significa che ci sono 11 teste su 30. Come possiamo indovinare <span class="math inline">\(s\)</span>? Un primo approccio potrebbe essere quello di dividere le possibili probabilità in intervalli di 0.1, e vedere con la formula della distribuzione binomiale quale è più probabile.</p>
 			<div style="text-align: center">
 			<figure>
-			<img src="matematica-figure0.svg" class="img-fluid" alt="">
+			<img src="assets/matematica-figure0.svg" class="img-fluid" alt="">
 			</figure>
 			</div>
 			<br />
 
 			<p>Procedendo con questo metodo possiamo ottenere una risposta approssimativa, ovvero quella più vicina al risultato: <span class="math inline">\(0.4\)</span>. Se però si riflette sul valore del numero, possiamo anche pensare ai numeri reali più vicini, ad esempio <span class="math inline">\(0.40001\)</span> o <span class="math inline">\(0.39999\)</span>. Dunque per avere più precisione nelle nostre previsioni occorre rendere l’intervallo di ogni valore di <span class="math inline">\(s\)</span> più piccolo.  In questo caso possiamo usare un intervallo di 0.01 per garantire una maggiore precisione.</p>
 			<div style="text-align: center">
-			<img src="matematica-figure1.svg" class="img-fluid" alt="">
+			<img src="assets/matematica-figure1.svg" class="img-fluid" alt="">
 			</div>
 			<p>Grazie alla maggiore precisione possiamo meglio definire un possibile valore di <span class="math inline">\(s\)</span>, che non è più <span class="math inline">\(0.4\)</span>, ma è un po’ più piccolo. Dal grafico si può approssimare un valore di circa 0.367, ma se utilizziamo i dati <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> (che in questo caso possono essere utilizzati per calcolare l’<span class="math inline">\(s\)</span> approssimativo della distribuzione, in quanto abbiamo eseguito solo una simulazione), possiamo calcolare il valore preciso, che è <span class="math inline">\(0.3\overline{6}\)</span>.</p>
 			<p>Di conseguenza <span class="math inline">\(s\)</span> può essere un qualsiasi valore contenuto nell’insieme dei numeri reali, oltre ad essere compreso tra 0 e 1. Dunque il fatto che <span class="math inline">\(s\)</span> sia un numero reale rende necessaria una sorta di distribuzione binomiale continua, ovvero senza interruzioni. La distribuzione che risolve questo problema è la <em>Distribuzione Beta</em> (detta anche <em>Funzione di densità della probabilità</em>), descritta dall’equazione:</p>
