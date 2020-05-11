@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
    <head>
       <title>Saverio's website</title>
@@ -33,77 +33,21 @@
                   </div>
                </li>
             </ul>
-            <span>
-            <button type="button" onclick="window.location.href='index';" class="btn btn-outline-secondary">Torna indietro</button>
-            </span>
          </div>
       </nav>
       <br>
       <div class="container">
-         <h1>Probabilità delle probabilità</h1>
-         <p>Supponiamo per un momento che tu possieda una fabbrica di auto, e prima di lanciare un nuovo modello decidi di fare un piccolo controllo sulla qualità della produzione delle tue macchine. Decidi di fare un piccolo test con un gruppo di campioni limitato, diciamo 100, e supponiamo che la produzione di ogni macchina sia indipendente l’una dall’altra, ovvero che la qualità di una macchina non influisce sulla prossima. Dopo un periodo di tempo raccogli i dati, e vedi che 2 macchine su 100 sono difettose, mentre il resto ha superato il controllo della qualità. L’approccio più ingenuo sarebbe quello di utilizzare le formule della probabilità classica, e dunque giungi alla conclusione che la probabilità che la fabbrica produca una macchina difettosa sia del 2%. Per confermare la tua ipotesi decidi di fare un altro test, questa volta con un insieme di campioni più grande: 1000 macchine. Questa volta però le macchine difettose sono 30, e facendo i calcoli adesso la probabilità è del 3%. Dunque ti rendi conto che non è possibile conoscere la probabilità esatta, ma solamente un range di valori che potrebbero racchiudere il valore reale. Sarebbe però utile conoscere il valore più vicino possibile a quello vero, <strong>il valore più probabile</strong>. Grazie a questo esempio possiamo capire come non sempre nel mondo reale sia possibile avere delle probabilità certe, ma solamente delle <em>probabilità delle probabilità</em>, che sono un modo per analizzare i possibili valori più vicini a quell’ipotetico numero che stabilisce il rapporto tra due eventi binari (ovvero solo due possibilità). L’unico metodo per avvicinarci sempre di più a quel numero è aggiungere nuovi dati, e di conseguenza aggiornare la nostra ipotesi (attraverso per esempio il teorema di Bayes).</p>
-         <h2 id="distribuzione-binomiale-discreta">Distribuzione binomiale discreta</h2>
-         <p>Facendo un esempio più classico, come quello della moneta, possiamo stabilire un modello probabilistico (stocastico) più facile da gestire matematicamente. Definiamo <span class="math inline">\(s\)</span> come la probabilità che lanciando una moneta esca testa. Per il momento stabiliamo che la moneta non è truccata: dunque <span class="math inline">\(s = 0.5\)</span>, ovvero c’è il 50% di probabilità che lanciando la moneta esca testa. Definiamo <span class="math inline">\(n\)</span> invece come il numero di lanci che vogliamo eseguire, ad esempio 100. Infine definiamo <span class="math inline">\(k\)</span> come il numero di teste che sono uscite in seguito alla nostra sperimentazione. Utilizzando il linguaggio di programmazione <code>Python</code> possiamo creare piccole simulazioni e scalarle facilmente a numeri più grandi.</p>
-         <p>Supponiamo adesso di voler sapere quante volte (se ripetessimo l’esperimento dei 100 lanci) <span class="math inline">\(k\)</span> equivale a 48 (nonostante il fatto che <span class="math inline">\(s\)</span> equivalga a <span class="math inline">\(0.5\)</span>, è ragionevole pensare che il risultato non sarà solamente e sempre quello di 50 teste e 50 code, conclusione tratta anche nel primo esempio). Consideriamo sempre le stesse condizioni di prima: il modello è <strong>discreto</strong> (non esite mezza testa o mezza coda, quindi <span class="math inline">\(k\)</span> non può essere decimale), e ogni lancio è <strong>indipendente l’uno dall’altro</strong>.</p>
-         <figure>
-            <img src="assets/p05n100.png" class="img-fluid" alt="">
-            <figcaption>Insieme campione: 100000 simulazioni</figcaption>
-         </figure>
-         <p>Eseguita la simulazione, per calcolare la probabilità che <span class="math inline">\(k\)</span> sia 48 basta prendere la frequenza del caso in cui escono 48 teste (<span class="math inline">\(7433\)</span>) e dividerlo per il numero di simulazioni (<span class="math inline">\(100000\)</span>). La probabilità risultante sarà <span class="math inline">\(0,07433\)</span>, ovvero nel 7,4% dei casi.</p>
-         <p>Abbiamo visto quindi come questo modello segue la <strong>distribuzione binomiale</strong>, e quindi per calcolare ogni probabilità di un evento con un dati <span class="math inline">\(k\)</span>, <span class="math inline">\(n\)</span> e <span class="math inline">\(s\)</span>, basterà utilizzare la formula apposita:</p>
-         <p><span class="math display">\[\begin{equation}
-            \binom{n}{k}s^k(1-s)^{n-k}
-            \end{equation}\]</span>
-         </p>
-         <p>Questa formula può essere quindi utilizzata anche con altri valori, ad esempio se volessi computare la probabilità che su 30 lanci escano 10 teste, posso sostituire i dati nell’equazione (tenendo sempre conto però della moneta, che in questo caso non è truccata):</p>
-         <p><span class="math display">\[\begin{equation}
-            P(teste=10)=\binom{30}{10}0.5^{10}(1-0.5)^{20}=0.0279...
-            \end{equation}\]</span><br />
-         </p>
-         <h2 id="distribuzione-binomiale-continua">Distribuzione binomiale continua</h2>
-         <p>Prendiamo in esame un esempio più complicato (ma anche più vicino alla realtà). I valori <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> sono come sempre stabiliti perchè arbitrari, ma questa volta il valore <span class="math inline">\(s\)</span> non è stabilito, ma diventa oggetto di indagine. Attraversi i dati ottenuti dai calcoli eseguiti con <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> si otterranno solo delle approssimazioni di <span class="math inline">\(s\)</span>, e non un valore preciso. Consideriamo di nuovo l’esempio della moneta: in questo caso la moneta è truccata, e la percentuale <span class="math inline">\(s\)</span> di ottenere testa è sconosciuta. Possiamo solamente ricavare la previsione a priori, e poi aggiornarla con l’aggiunta di nuovi dati.</p>
-         <p>Il primo caso è proprio quello della moneta: <span class="math inline">\(n=30\)</span> e <span class="math inline">\(k=11\)</span>. Ciò significa che ci sono 11 teste su 30. Come possiamo indovinare <span class="math inline">\(s\)</span>? Un primo approccio potrebbe essere quello di dividere le possibili probabilità in intervalli di 0.1, e vedere con la formula della distribuzione binomiale quale è più probabile.</p>
-         <div style="text-align: center">
-            <figure>
-               <img src="assets/matematica-figure0.svg" class="img-fluid" alt="">
-            </figure>
-         </div>
-         <br />
-         <p>Procedendo con questo metodo possiamo ottenere una risposta approssimativa, ovvero quella più vicina al risultato: <span class="math inline">\(0.4\)</span>. Se però si riflette sul valore del numero, possiamo anche pensare ai numeri reali più vicini, ad esempio <span class="math inline">\(0.40001\)</span> o <span class="math inline">\(0.39999\)</span>. Dunque per avere più precisione nelle nostre previsioni occorre rendere l’intervallo di ogni valore di <span class="math inline">\(s\)</span> più piccolo.  In questo caso possiamo usare un intervallo di 0.01 per garantire una maggiore precisione.</p>
-         <div style="text-align: center">
-            <img src="assets/matematica-figure1.svg" class="img-fluid" alt="">
-         </div>
-         <p>Grazie alla maggiore precisione possiamo meglio definire un possibile valore di <span class="math inline">\(s\)</span>, che non è più <span class="math inline">\(0.4\)</span>, ma è un po’ più piccolo. Dal grafico si può approssimare un valore di circa 0.367, ma se utilizziamo i dati <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> (che in questo caso possono essere utilizzati per calcolare l’<span class="math inline">\(s\)</span> approssimativo della distribuzione, in quanto abbiamo eseguito solo una simulazione), possiamo calcolare il valore preciso, che è <span class="math inline">\(0.3\overline{6}\)</span>.</p>
-         <p>Di conseguenza <span class="math inline">\(s\)</span> può essere un qualsiasi valore contenuto nell’insieme dei numeri reali, oltre ad essere compreso tra 0 e 1. Dunque il fatto che <span class="math inline">\(s\)</span> sia un numero reale rende necessaria una sorta di distribuzione binomiale continua, ovvero senza interruzioni. La distribuzione che risolve questo problema è la <em>Distribuzione Beta</em> (detta anche <em>Funzione di densità della probabilità</em>), descritta dall’equazione:</p>
-         <p><span class="math display">\[\begin{equation}
-            Beta(\alpha, \beta)=\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}
-            \end{equation}\]</span>
-         </p>
-         <p>Dove <span class="math inline">\(\alpha=k\)</span>, <span class="math inline">\(\beta=n-k\)</span> e <span class="math inline">\(B(\alpha, \beta)\)</span> è una particolare funzione definita <em>Funzione Beta</em>.</p>
-         <div style="text-align: center">
-            <figure>
-               <img src="assets/matematica-figure2.svg" class="img-fluid" alt="">
-            </figure>
-         </div>
-         <p>Grazie a questo strumento matematico possiamo finalmente calcolare la probabilità che <span class="math inline">\(s\)</span> abbia un certo valore. Prima però è importante porsi delle domande sul valore <span class="math inline">\(s\)</span> stesso. La domanda da farsi è “può <span class="math inline">\(s\)</span> assumere un valore preciso?” o più chiaramente, “Qual è la probabilità che <span class="math inline">\(s\)</span> sia <strong>esattamente</strong> un valore <span class="math inline">\(x\)</span>?”.</p>
-         <p>Il buon senso ci dice che probabilmente non è molto alta: non può essere <strong>esattamente</strong> (ad esempio) 0.4 e non 0.399999 o 0.400001. Anche matematicamente ciò ha senso: possiamo pensare alla distribuzione beta come una distribuzione discreta</p>
-         <button type="button" onclick="window.location.href='index';" class="btn btn-outline-secondary">Torna indietro</button><br>
+         <h1>Home</h1>
+         <button onclick="window.location.href = 'about';" class="btn btn-outline-primary">About</button><br>
          <br>
-         <a href="assets/matematica.pdf" download>Scarica la versione PDF</a>
+         <button onclick="window.location.href = 'locke-hobbes';" class="btn btn-outline-primary">Locke e Hobbes - Politica</button><br>
          <br>
+         <button onclick="window.location.href = 'prob';" class="btn btn-outline-primary">Probabilità delle probabilità</button><br>			
       </div>
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      <script type="text/x-mathjax-config">
-         MathJax.Hub.Config({
-          "HTML-CSS": { linebreaks: { automatic: true } },
-         	 SVG: { linebreaks: { automatic: true } }
-         });
-      </script>
    </body>
 </html>
