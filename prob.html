@@ -90,9 +90,23 @@
             </figure>
          </div>
          <p>Grazie a questo strumento matematico possiamo finalmente calcolare la probabilità che <span class="math inline">\(s\)</span> abbia un certo valore. Prima però è importante porsi delle domande sul valore <span class="math inline">\(s\)</span> stesso. La domanda da farsi è “può <span class="math inline">\(s\)</span> assumere un valore preciso?” o più chiaramente, “Qual è la probabilità che <span class="math inline">\(s\)</span> sia <strong>esattamente</strong> un valore <span class="math inline">\(x\)</span>?”.</p>
-         <p>Il buon senso ci dice che probabilmente non è molto alta: non può essere <strong>esattamente</strong> (ad esempio) 0.4 e non 0.399999 o 0.400001. Anche matematicamente ciò ha senso: possiamo pensare alla distribuzione beta come una distribuzione discreta</p>
+       <!--l. 243--><p class="indent" >   Il buon senso ci dice che probabilmente non è molto alta: non può essere <tspan font-family="cmbx" font-size="10">esattamente </tspan>(ad esempio) 0.4 e non
+0.399999 o 0.400001. Anche matematicamente ciò ha senso: possiamo pensare alla distribuzione beta come una
+distribuzione discreta con intervalli sempre più piccoli. Se la probabilità di un determinato valore \(s\) è rappresentata
+dall&#8217;area di una &#8220;barra&#8221;, riducendo l&#8217;intervallo questa diventerà sempre più piccola, riducendo di conseguenza la
+probabilità che sia quel valore.<br 
+class="newline" />
+</p><!--l. 248--><p class="indent" >   Ha più senso calcorare l&#8217;area di un determinato intervallo in cui \(s\) può cadere: per ottenere questo
+risultato basta quindi calcoare l&#8217;area sotto al grafico (definendo un intervallo). Ciò si può fare con gli
+integrali.
+   <!--l. 322--><p class="indent" >   C&#8217;è da notare anche come l&#8217;area di tutto il grafico sia 1, mentre l&#8217;area di un valore preciso (che avrà un intervallo
+   sulle ascisse infinitamente piccolo) sarà praticamente 0.</p>
+   <!--l. 324--><p class="indent" >   Per calcorare il valore \(s\) in quel intervallo basterà infine utilizzare gli integrali. Il valore (l&#8217;area sotto il grafico
+delimitato in quell&#8217;intervallo) sarà la probabilità che il valore \(s\) si trovi in quel range.
+</p><!--l. 328--><p class="indent" >   \begin{equation} \int _{0.25}^{0.45} Beta(11,19) \end{equation}
+</p> 
          <button type="button" onclick="window.location.href='index';" class="btn btn-outline-secondary">Torna indietro</button><br>
-         <br>
+   <br>
          <a href="assets/matematica.pdf" download>Scarica la versione PDF</a>
          <br>
       </div>
